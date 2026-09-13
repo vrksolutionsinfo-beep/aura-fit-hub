@@ -1,4 +1,4 @@
-@import "tailwindcss" source(none);
+﻿@import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
 
@@ -53,6 +53,8 @@
   --danger: oklch(0.42 0.14 25);
   --shadow-gold: 0 0 45px color-mix(in oklab, var(--primary) 18%, transparent);
   --shadow-deep: 0 24px 70px oklch(0 0 0 / 55%);
+  --gold-hex: #c9a227;
+  --red-deep: #8b1a1a;
 }
 
 * { border-color: var(--border); }
@@ -60,6 +62,10 @@ html { scroll-behavior: smooth; background: var(--background); }
 body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-body); overflow-x: hidden; }
 ::selection { background: var(--primary); color: var(--primary-foreground); }
 a, button, input, textarea, select { outline-color: var(--ring); }
+
+@media (pointer: fine) {
+  body, body * { cursor: none !important; }
+}
 
 @utility display-hero { font-family: var(--font-display); font-weight: 800; line-height: .82; letter-spacing: 0; text-transform: uppercase; }
 @utility eyebrow { font-size: .68rem; font-weight: 700; line-height: 1; letter-spacing: .2em; text-transform: uppercase; color: var(--primary); }
@@ -70,10 +76,31 @@ a, button, input, textarea, select { outline-color: var(--ring); }
 
 @keyframes lineDown { 0% { transform: scaleY(0); transform-origin: top; } 45% { transform: scaleY(1); transform-origin: top; } 55% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
 @keyframes pulseGold { 0%,100% { box-shadow: 0 0 0 color-mix(in oklab, var(--primary) 0%, transparent); } 50% { box-shadow: var(--shadow-gold); } }
+@keyframes scrollBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+@keyframes floatUp { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@property --border-angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@keyframes borderSpin { from { --border-angle: 0deg; } to { --border-angle: 360deg; } }
+@keyframes trainerReveal { from { clip-path: inset(0 0 100% 0); opacity: 0; transform: scale(1.05); } to { clip-path: inset(0 0 0% 0); opacity: 1; transform: scale(1); } }
+
 .animate-line { animation: lineDown 2.2s ease-in-out infinite; }
 .animate-gold { animation: pulseGold 3.5s ease-in-out infinite; }
+.animate-scroll-bounce { animation: scrollBounce 1.8s ease-in-out infinite; }
+.animate-float { animation: floatUp 4s ease-in-out infinite; }
+
+.pricing-featured-border {
+  position: relative;
+  background: linear-gradient(var(--card), var(--card)) padding-box, conic-gradient(from var(--border-angle), #c9a227 0%, transparent 35%, transparent 65%, #c9a227 100%) border-box;
+  border: 1px solid transparent;
+  animation: borderSpin 7s linear infinite;
+}
+
+.nav-underline { position: relative; }
+.nav-underline::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 100%; height: 1px; background: var(--primary); transform: scaleX(0); transform-origin: left; transition: transform .3s cubic-bezier(.4,0,.2,1); }
+.nav-underline:hover::after { transform: scaleX(1); }
+.nav-underline[data-active="true"]::after { transform: scaleX(1); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .pricing-featured-border { animation: none; }
 }

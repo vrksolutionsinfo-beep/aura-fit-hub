@@ -2,6 +2,12 @@ import heroImage from "@/assets/aura-hero.jpg";
 import welcomeImage from "@/assets/aura-welcome.jpg";
 import gymImage from "@/assets/aura-gym.jpg";
 import programsImage from "@/assets/aura-programs.jpg";
+import heroCinematic from "@/assets/aura-hero-cinematic.jpg";
+import programStrength from "@/assets/program-strength.jpg";
+import programCardio from "@/assets/program-cardio.jpg";
+import programZumba from "@/assets/program-zumba.jpg";
+import programCrossfit from "@/assets/program-crossfit.jpg";
+import programPersonalTraining from "@/assets/program-personal-training.jpg";
 
 export const gymConfig = {
   name: "AURA FITNESS",
@@ -15,15 +21,27 @@ export const gymConfig = {
   position: "SAMALKOT'S BIGGEST GYM",
 };
 
-export const images = { heroImage, welcomeImage, gymImage, programsImage };
+export const images = {
+  heroImage,
+  heroCinematic,
+  welcomeImage,
+  gymImage,
+  programsImage,
+  programStrength,
+  programCardio,
+  programZumba,
+  programCrossfit,
+  programPersonalTraining,
+};
 
 export const programs = [
-  { number: "01", name: "Strength Training", copy: "Build foundational power with focused free-weight and resistance training.", position: "0% 0%" },
-  { number: "02", name: "Cardio", copy: "Condition your heart, sharpen endurance and move with purpose.", position: "100% 0%" },
-  { number: "03", name: "Zumba", copy: "High-energy group movement that makes every session feel alive.", position: "0% 100%" },
-  { number: "04", name: "CrossFit", copy: "Functional intensity, athletic movement and measurable progress.", position: "50% 100%" },
-  { number: "05", name: "Personal Training", copy: "One-to-one guidance shaped around your goals and ability.", position: "100% 100%" },
+  { number: "01", name: "Strength Training", copy: "Build foundational power with focused free-weight and resistance training.", position: "0% 0%", image: programStrength },
+  { number: "02", name: "Cardio", copy: "Condition your heart, sharpen endurance and move with purpose.", position: "100% 0%", image: programCardio },
+  { number: "03", name: "Zumba", copy: "High-energy group movement that makes every session feel alive.", position: "0% 100%", image: programZumba },
+  { number: "04", name: "CrossFit", copy: "Functional intensity, athletic movement and measurable progress.", position: "50% 100%", image: programCrossfit },
+  { number: "05", name: "Personal Training", copy: "One-to-one guidance shaped around your goals and ability.", position: "100% 100%", image: programPersonalTraining },
 ];
+
 
 export const pricingPlans = [
   { term: "1 MONTH", price: "₹1,999" },
