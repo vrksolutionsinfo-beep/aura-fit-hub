@@ -1,0 +1,5 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PageHero, TrainerGrid, FinalCta } from "@/components/PageBlocks";
+import { images } from "@/data/site";
+export const Route=createFileRoute("/trainers")({head:()=>({meta:[{title:"Trainers | Aura Fitness Samalkota"},{name:"description",content:"Meet the training team at Aura Fitness. Trainer details will be updated as confirmed."},{property:"og:title",content:"Meet the Aura Fitness Team"},{property:"og:description",content:"Focused guidance for stronger results."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}]}),component:Trainers});
+function Trainers(){return <main><PageHero eyebrow="THE TEAM" title="GUIDANCE. ENERGY. RESULTS." copy="Professional trainer profiles are being prepared and will be updated with verified details." image={images.welcomeImage}/><section className="py-24"><div className="section-shell"><TrainerGrid/><p className="mt-6 text-xs text-muted-foreground">Trainer names, biographies and credentials are editable placeholders until confirmed by Aura Fitness.</p></div></section><FinalCta/></main>}
