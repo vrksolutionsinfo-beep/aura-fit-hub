@@ -42,12 +42,13 @@ export function Header() {
           aria-label="Aura Fitness home"
           className="group flex items-center gap-3"
         >
-          <span className="grid size-9 place-items-center border border-primary text-primary transition-transform duration-300 group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground">
-            <Dumbbell className="size-4" />
+          <span className="grid size-9 place-items-center overflow-hidden rounded-full border border-primary/60 bg-black/60 shadow-[0_0_12px_rgba(201,162,39,0.3)] transition-transform duration-300 group-hover:scale-105 group-hover:border-primary">
+            <img src="/favicon.png" alt="Aura Fitness logo" className="size-full object-cover" />
           </span>
           <span className="font-display text-xl font-extrabold tracking-[.08em]">
             AURA <span className="text-primary">FITNESS</span>
           </span>
+
         </Link>
 
         {/* Desktop Nav */}
